@@ -1,0 +1,32 @@
+Notes:
+ 1> In-flight Encryption (In-Transit Encryption)
+ 2> In Server-Side Encryption, both the encryption and decryption processes occur on the server itself. 
+ 3> When you enable automatic rotation on an AWS KMS key, the backing key is rotated every year (by default every 365 days), though you can also customize the rotation period to a value between 90 and 2,560
+ 4> Choosing "KMS IAM Policy" is incorrect because IAM policies are used to manage permissions for AWS resources broadly, rather than specifically for controlling access to KMS Customer Master Keys (CMKs). KMS CMK access is primarily governed by KMS Key Policies, which are directly attached to the key itself and specify who can use or manage it. This distinction is crucial in understanding how to properly secure and manage access to your encryption keys in AWS.
+ 5> "SSM Parameter Store," which is correct because it allows you to securely store and manage secrets while also providing version control, enabling you to track changes over time. This capability is essential for auditing and maintaining the integrity of your secret values, aligning perfectly with the objectives of effective secret management.
+ 6> ebs io1 and io2 can be attached upto 16 instances.
+ 7> cluster aware file system.
+ 8> "AWS Firewall Manager" because it enables you to centrally manage and enforce firewall rules, including AWS WAF and AWS Shield Advanced, across all your AWS accounts in an organization. This capability aligns perfectly with your need to streamline security configurations at scale.
+ 9> "Using Aurora Client-side Encryption and KMS Multi-region Keys" because it ensures that data is encrypted on the client side before being sent to the database, aligning perfectly with your requirement for data confidentiality even from company admins, while also leveraging KMS for secure key management across regions for maintaining availability and resilience.
+ 10> Configuring permissions for both the Source KMS Key (kms:Decrypt) and the Target KMS Key (kms:Encrypt) is essential for S3 replication, as this ensures the S3 Replication Service can access the source objects and properly encrypt them during replication to the target bucket. By understanding this permission setup, you grasp the importance of managing key policies to facilitate secure data transfer in AWS.
+ 11> Configure EventBridge for Daily Expiration Events from ACM to invoke SNS notifications to your email because this setup allows you to receive timely notifications about your certificate's expiration, ensuring that you can take action before it expires, which is crucial for maintaining uninterrupted service. This choice aligns well with the learning objective of understanding how to manage certificate lifecycle and notification mechanisms in AWS.
+ 12>Edge-Optimized API Gateway ke peeche CloudFront use hota hai.
+
+Aur CloudFront ke liye ACM certificate hamesha us-east-1 mein banana hota hai.
+
+ 13> 
+Edge-Optimized API Gateway → ACM us-east-1
+Imported ACM certificate → No automatic renewal
+Firewall Manager → Central security management
+Shield Advanced → Advanced DDoS protection
+KMS → Key Policy controls access
+KMS automatic rotation → 365 days by default
+Client-side encryption → client encrypts
+Server-side encryption → server/AWS encrypts
+
+14> keywords for exam
+ 
+AWS Redshift - petabyte scale data warehouse
+AWS EMR - big data processing, apache framework, ETL
+AWS kinesis - real time streaming
+AWS athena - query data in s3 using sql 
