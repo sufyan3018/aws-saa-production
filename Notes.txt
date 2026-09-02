@@ -30,3 +30,23 @@ AWS Redshift - petabyte scale data warehouse
 AWS EMR - big data processing, apache framework, ETL
 AWS kinesis - real time streaming
 AWS athena - query data in s3 using sql 
+
+15>If the question says:
+
+"The company wants the strongest protection against phishing."
+
+Think:
+
+✅ Passkey / FIDO2 security key
+
+Not:
+
+❌ SMS OTP
+❌ Authenticator app TOTP
+❌ Hardware TOTP
+Memory trick
+
+TOTP = "Give me a code."
+FIDO2 = "Prove cryptographically that you're authenticating to the real site."
+
+That's the main reason AWS recommends passkeys/security keys over TOTP-based MFA.
