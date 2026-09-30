@@ -14,7 +14,7 @@ Notes:
 
 Aur CloudFront ke liye ACM certificate hamesha us-east-1 mein banana hota hai.
 
- 13> 
+13>
 Edge-Optimized API Gateway → ACM us-east-1
 Imported ACM certificate → No automatic renewal
 Firewall Manager → Central security management
@@ -29,7 +29,7 @@ Server-side encryption → server/AWS encrypts
 AWS Redshift - petabyte scale data warehouse
 AWS EMR - big data processing, apache framework, ETL
 AWS kinesis - real time streaming
-AWS athena - query data in s3 using sql 
+AWS athena - query data in s3 using sql
 
 15>If the question says:
 
@@ -50,3 +50,45 @@ TOTP = "Give me a code."
 FIDO2 = "Prove cryptographically that you're authenticating to the real site."
 
 That's the main reason AWS recommends passkeys/security keys over TOTP-based MFA.
+
+16>   VPC Notes
+VPC actually zyada mushkil nahi hai — log isliye atakte hain kyunki saare pieces ek saath sikhaye jaate hain. Chalo ekdum scratch se, ek analogy ke saath.
+
+VPC ko ek gated colony samjho.
+
+Tumhara VPC = poori colony ki boundary (ek IP range, jaise 10.0.0.0/16 — matlab is colony mein itne "ghar" fit ho sakte hain).
+
+Ab is colony ko tum subnets mein divide karte ho — colony ke andar alag-alag sections/blocks. Har subnet ek chhota IP range hota hai (jaise 10.0.1.0/24).
+
+Do tarah ke subnets hote hain:
+
+Public subnet — jiska raasta seedha bahar road (internet) tak jaata hai
+Private subnet — jo colony ke andar hi rehta hai, bahar seedha nahi ja sakta
+
+Ab teen cheezein jo isko control karti hain:
+
+1. Internet Gateway (IGW) — colony ka main gate
+Yeh poori colony ka ek hi gate hai jo internet se connect karta hai. Koi bhi subnet directly tabhi internet use kar sakta hai jab uska route table iss gate ki taraf point kare.
+
+2. Route Table — "kaunse subnet se kaunsa raasta jaata hai"
+Yeh basically ek signboard hai: "agar tumhe bahar jaana hai, IGW se jao" (public subnet mein) ya "sirf colony ke andar hi jaa sakte ho" (private subnet mein). Public subnet ka route table IGW ki taraf point karta hai — bas yahi ek cheez usko "public" banati hai, kuch aur nahi.
+
+3. NAT Gateway — private ghar walon ke liye one-way exit
+Agar private subnet mein koi cheez (jaise database server) ko sirf updates download karne hain internet se, par bahar se koi usse access na kar paaye — tab NAT Gateway use hota hai. Yeh public subnet mein baithta hai, aur private subnet ko "bahar jaane do, par bahar se andar aane mat do" wala one-way raasta deta hai.
+
+4. Security Groups vs NACLs — do alag guards
+
+Yeh sabse zyada confuse karta hai, isliye clearly:
+
+	Security Group	NACL
+Kahan lagta hai	Individual server (instance) ke darwaze pe	Poore subnet ki boundary pe
+Kaise kaam karta hai	Sirf "allow" rules — jo nahi likha wo block	Allow aur Deny dono likh sakte ho
+State	Stateful — agar andar aane diya, bahar jaane ka automatic allow	Stateless — dono directions explicitly allow karne padte hain
+
+Analogy: Security Group = tumhare ghar ka darwaza guard (sirf tumhare ghar ke liye). NACL = colony ke us block ka gate guard (poore block ke liye, chahe andar kitne bhi ghar hon).
+
+Ab bolo — inme se kaunsa part abhi bhi confusing lag raha hai? Route tables, NAT vs IGW, ya SG vs NACL? Usi pe zoom in karke ek practical scenario se samjhata hoon.|
+
+
+16> amazon athena can directly queires in the s3
+17> 
