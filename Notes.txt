@@ -1,6 +1,6 @@
 Notes:
  1> In-flight Encryption (In-Transit Encryption)
- 2> In Server-Side Encryption, both the encryption and decryption processes occur on the server itself. 
+ 2> In Server-Side Encryption, both the encryption and decryption processes occur on the server itself.
  3> When you enable automatic rotation on an AWS KMS key, the backing key is rotated every year (by default every 365 days), though you can also customize the rotation period to a value between 90 and 2,560
  4> Choosing "KMS IAM Policy" is incorrect because IAM policies are used to manage permissions for AWS resources broadly, rather than specifically for controlling access to KMS Customer Master Keys (CMKs). KMS CMK access is primarily governed by KMS Key Policies, which are directly attached to the key itself and specify who can use or manage it. This distinction is crucial in understanding how to properly secure and manage access to your encryption keys in AWS.
  5> "SSM Parameter Store," which is correct because it allows you to securely store and manage secrets while also providing version control, enabling you to track changes over time. This capability is essential for auditing and maintaining the integrity of your secret values, aligning perfectly with the objectives of effective secret management.
@@ -91,4 +91,83 @@ Ab bolo — inme se kaunsa part abhi bhi confusing lag raha hai? Route tables, N
 
 
 16> amazon athena can directly queires in the s3
-17> 
+17> An application runs on an Amazon EC2 instance in a VPC. The application processes logs that are stored in an Amazon S3 bucket. The EC2 instance needs to access the S3 bucket without connectivity to the internet.
+Which solution will provide private network connectivity to Amazon S3?
+A. Create a gateway VPC endpoint to the S3 bucket. ✅
+
+B. Stream the logs to Amazon CloudWatch Logs. Export the logs to the S3 bucket.
+
+C. Create an instance profile on Amazon EC2 to allow S3 access.
+
+D. Create an Amazon API Gateway API with a private link to access the S3 endpoint.
+
+Aesa koi bhi question aaye mtlb jimse s3 ya dynamodb ko private connection ki baat ho toh hamesha gateway VPC endpoint answer hoga.
+
+private internet access(s3 & dynamodb) = gateway vpc end point.
+
+
+18> Jb bhi question mai microservice ya coupling/decoupling ki baat ho tb sns or sqs ya both sns and sqs answer hota hai.
+19> Data is incresing ---> s3 file gateway
+
+20> edge location (reduce latency) ki jb baat ho toh cloudfront ya global accelrator when to choose who?
+    networking (network layer) -> global accelrator
+	application -> cloud front
+
+21> Traffic flow inspection & Traffic filtering -------> aws network firewall.
+
+22> Amazon Quick Sight – Interactive data visualization and business intelligence. Connect to data sources, build dashboards, and embed analytics in applications.
+
+23> Alb---> layer7(Application)   
+    Nlb---> Layer4(Network)
+	Glb---> Inspection purpose
+
+24> S3 mai upredictable workloads = s3 Intelligent-tiering
+
+25> 	
+
+
+
+
+
+AWS Systems Manager (SSM) is organized into four primary operational capability groups. Under these categories, AWS includes more than a dozen specialized sub-services and tools:
+
+1. Node Management
+
+These tools are used to connect to, configure, patch, and manage the underlying compute infrastructure (EC2 instances, on-premises virtual machines, and multi-cloud servers).
+• Session Manager: Secure, one-click interactive shell and CLI access through a web browser, eliminating the need for SSH keys, open inbound ports, or bastion hosts.
+• Run Command: Secure execution of scripts or shell commands at scale across vast server fleets simultaneously without direct login.
+• Patch Manager: Automated vulnerability scanning and OS/software patch deployment based on customized patch baselines.
+• State Manager: Automates configuration compliance to ensure managed nodes stay in a defined "desired state" (e.g., ensuring a specific security software agent is always running).
+• Fleet Manager: A centralized user interface to view and manage the health, configuration, and operating systems of all servers in one place.
+• Inventory: Automatically tracks software installations, operating system configurations, network settings, and application metadata on your nodes.
+• Distributor: Simplifies building and securely distributing software packages (like monitoring tools, logs collectors, or security agents) to instances.
+• Compliance: Aggregates and displays compliance statuses based on patch evaluations and State Manager rules.
+
+2. Application Management
+
+These tools manage application-level environments, variable parameters, and configuration secrets.
+• Parameter Store: Centralized, secure storage for configuration strings, license codes, and encrypted secrets (such as database passwords), integrated with AWS KMS.
+• AppConfig: Helps deploy application configurations and safe, dynamic feature flags independently of code deployments, featuring automatic validation and instant rollbacks.
+• Application Manager: Aggregates operational status, resources, and problems contextually by application (e.g., grouped by an EKS cluster or CloudFormation stack).
+
+3. Change Management
+
+These services allow teams to safely introduce, schedule, and approve manual or automated updates to infrastructure.
+• Automation: Executes multi-step operational runbooks (YAML/JSON templates) for routine infrastructure maintenance tasks, such as generating automated machine images (AMIs).
+• Change Manager: An enterprise change-management workflow tool to request, review, approve, and track operational changes before execution.
+• Maintenance Windows: Defines scheduled blocks of time for disruptive operations (like patching or system reboots) to prevent business downtime.
+• Change Calendar: Establishes specific dates and times where infrastructure shifts are allowed or blocked (e.g., enforcing an operational freeze during major sales events).
+
+4. Operations Management
+
+A unified "single pane of glass" to look at overall health, aggregate issues, and track active cloud incidents.
+• OpsCenter: Centralizes operational work items (called OpsItems), allowing DevOps engineers to view, track, and fix issues across various AWS services.
+• Incident Manager: Coordinates automated incident response steps, alerts on-call teams, manages response chat rooms, and maps out post-incident analyses.
+• Explorer: A highly customizable Operations dashboard that aggregates metrics, compliance state, and operational health reports across multiple accounts and regions.
+Hello,
+
+We had provisioned bucket for the ETL demo.We had also uploaded csv files.Please find the required access details below:
+
+
+Thanks & Regards
+Sufyan
