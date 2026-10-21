@@ -123,10 +123,34 @@ private internet access(s3 & dynamodb) = gateway vpc end point.
 
 24> S3 mai upredictable workloads = s3 Intelligent-tiering
 
-25> 	
+25> Only dyanmodb can handle milli seconds of latency while handling milloins of records	
 
+26> To access instaces securely = aws systems manager session manager.
 
+27> To increase Database storage performance ---> Increase the storage  or inscrease the storage type.
 
+28>     ingesting              + storing + lifecycle
+           |                       |            |
+    (kdf)     (kds)               s3         lifecycle
+   realtime   near realtime
+   delivers         delivers
+   only to s3,       to every 
+   redshift,         service
+   Third-Party Partner 
+
+ 29> Software as a service = amazon appflow
+
+ 30> private vpc sai s3 access krne kai liye gateway vpc endpoint use hota hai
+
+ 31> s3 mfa delete -> accidental deleteion
+
+ 32> PII -> amazon macie
+
+ 33> Gauranted ec2 capacity -> capacity reservation
+
+ 34> In terms of s3 file accessed randomly (Frequent access + Infrequent access) = s3 intelligent-tiering 
+
+35> Aws patch manager ---> yeh pure os ko patch krta hai so agar incase question mai mentioned hai like patching third party software so patch manager use nhi hoga.
 
 
 AWS Systems Manager (SSM) is organized into four primary operational capability groups. Under these categories, AWS includes more than a dozen specialized sub-services and tools:
