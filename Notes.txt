@@ -136,7 +136,7 @@ private internet access(s3 & dynamodb) = gateway vpc end point.
    delivers         delivers
    only to s3,       to every 
    redshift,         service
-   Third-Party Partner 
+   Third-Party Partner
 
  29> Software as a service = amazon appflow
 

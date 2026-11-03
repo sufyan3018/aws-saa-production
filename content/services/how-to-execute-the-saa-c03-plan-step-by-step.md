@@ -126,5 +126,3 @@ ue VeVi iwvul M49 IAL.
 - _) Logged anything | got wrong 
 
 If you can honestly check all 5 boxes at the end of a session, that session counted. If you anlv watched video it mastlyv didn't 
-
-    
