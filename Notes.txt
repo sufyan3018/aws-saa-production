@@ -152,6 +152,12 @@ private internet access(s3 & dynamodb) = gateway vpc end point.
 
 35> Aws patch manager ---> yeh pure os ko patch krta hai so agar incase question mai mentioned hai like patching third party software so patch manager use nhi hoga.
 
+36 > Jab private vpc mai sai data bahar bhejna ho toh ---> Gateway vpc endpoint
+
+
+
+
+
 
 AWS Systems Manager (SSM) is organized into four primary operational capability groups. Under these categories, AWS includes more than a dozen specialized sub-services and tools:
 
