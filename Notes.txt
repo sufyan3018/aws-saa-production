@@ -117,24 +117,24 @@ private internet access(s3 & dynamodb) = gateway vpc end point.
 
 22> Amazon Quick Sight – Interactive data visualization and business intelligence. Connect to data sources, build dashboards, and embed analytics in applications.
 
-23> Alb---> layer7(Application)   
+23> Alb---> layer7(Application)
     Nlb---> Layer4(Network)
 	Glb---> Inspection purpose
 
 24> S3 mai upredictable workloads = s3 Intelligent-tiering
 
-25> Only dyanmodb can handle milli seconds of latency while handling milloins of records	
+25> Only dynamodb can handle milli seconds of latency while handling milloins of records	
 
-26> To access instaces securely = aws systems manager session manager.
+26> To access instances securely = aws systems manager session manager.
 
-27> To increase Database storage performance ---> Increase the storage  or inscrease the storage type.
+27> To increase Database storage performance ---> Increase the storage or inscrease the storage type.
 
 28>     ingesting              + storing + lifecycle
            |                       |            |
-    (kdf)     (kds)               s3         lifecycle
-   realtime   near realtime
+    (kdf)      (kds)               s3         lifecycle
+   realtime      near realtime
    delivers         delivers
-   only to s3,       to every 
+   only to s3,       to every
    redshift,         service
    Third-Party Partner
 
@@ -148,13 +148,13 @@ private internet access(s3 & dynamodb) = gateway vpc end point.
 
  33> Gauranted ec2 capacity -> capacity reservation
 
- 34> In terms of s3 file accessed randomly (Frequent access + Infrequent access) = s3 intelligent-tiering 
+34> In terms of s3 file accessed randomly (Frequent access + Infrequent access) = s3 intelligent-tiering 
 
 35> Aws patch manager ---> yeh pure os ko patch krta hai so agar incase question mai mentioned hai like patching third party software so patch manager use nhi hoga.
 
 36 > Jab private vpc mai sai data bahar bhejna ho toh ---> Gateway vpc endpoint
 
-
+37> 
 
 
 
